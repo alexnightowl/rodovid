@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Родовід Колісників: Колісники, Бойки, Демчуки, Фертюки, Орлови — з документами й джерелами.">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; font-size: 14px; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Родовід Колісників</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: horizontal pedigree (you on the left, ancestors to the right) in a scrolling pane, person card beside it */
+:root {
+  --bg: #f3f5f4;
+  --surface: #ffffff;
+  --ink: #1b2422;
+  --muted: #5d6965;
+  --line: #b9c4c0;
+  --accent: #1f5f5b;
+  --doc2: #2c7a4b; --doc2-bg: #e7f3ec;
+  --doc1: #2d5c99; --doc1-bg: #e8eff9;
+  --oral: #9a6416; --oral-bg: #f8f0e2;
+  --patr: #6a55a3; --patr-bg: #f1eef9;
+  --hyp:  #6f7a76; --hyp-bg:  #eef1f0;
+  --unk:  #a3aeaa; --unk-bg:  transparent;
+  --self: #1f5f5b; --self-bg: #dcecea;
+  --shadow: rgba(20, 34, 31, .18);
+  --f-display: "Alegreya", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121816; --surface: #1a2220; --ink: #e3ebe8; --muted: #93a39e; --line: #3d4a46; --accent: #6fbfb7;
+  --doc2: #6cc792; --doc2-bg: #18301f; --doc1: #7fa8e3; --doc1-bg: #172338;
+  --oral: #e0a95a; --oral-bg: #33270f; --patr: #ad9bea; --patr-bg: #251f3a;
+  --hyp: #9aa6a2; --hyp-bg: #1e2624; --unk: #5f6d69; --self: #6fbfb7; --self-bg: #183331;
+  --shadow: rgba(0, 0, 0, .5);
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #121816; --surface: #1a2220; --ink: #e3ebe8; --muted: #93a39e; --line: #3d4a46; --accent: #6fbfb7;
+  --doc2: #6cc792; --doc2-bg: #18301f; --doc1: #7fa8e3; --doc1-bg: #172338;
+  --oral: #e0a95a; --oral-bg: #33270f; --patr: #ad9bea; --patr-bg: #251f3a;
+  --hyp: #9aa6a2; --hyp-bg: #1e2624; --unk: #5f6d69; --self: #6fbfb7; --self-bg: #183331;
+  --shadow: rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 48px;
+}
+.wrap { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+header { display: flex; flex-direction: column; gap: 6px; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 22px; margin: 0; text-wrap: balance; }
+h3 { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0; font-weight: 600; }
+.lede { max-width: 68ch; color: var(--muted); margin: 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; }
+.facts b { font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { width: 22px; height: 14px; border-radius: 4px; border: 2px solid; display: inline-block; }
+
+.treewrap { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.treewrap:fullscreen { background: var(--bg); padding: 14px max(16px, env(safe-area-inset-right, 0px)) 14px max(16px, env(safe-area-inset-left, 0px)); }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.hint { font-size: 13px; color: var(--muted); max-width: 70ch; }
+.zoom { display: flex; align-items: center; gap: 6px; }
+.zoom button { font: inherit; font-size: 14px; min-width: 36px; height: 34px; padding: 0 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 8px; cursor: pointer; }
+.zoom button:hover { border-color: var(--accent); }
+.zoom button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+#zval { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); min-width: 44px; text-align: center; font-variant-numeric: tabular-nums; }
+.pane { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: auto; height: max(520px, 84vh); min-width: 0; cursor: grab; touch-action: pan-x pan-y; overscroll-behavior: contain; }
+.pane.drag { cursor: grabbing; user-select: none; }
+.treewrap:fullscreen .pane { flex: 1; height: auto; }
+.stage { position: relative; }
+.canvas { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+.canvas svg { position: absolute; inset: 0; }
+.canvas svg path { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.canvas svg path.on { stroke: var(--accent); stroke-width: 2.5; }
+.gen { position: absolute; top: 14px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+.p {
+  position: absolute; text-align: left; font: inherit; color: var(--ink); cursor: pointer;
+  border: 2px solid var(--c); background: var(--b); border-radius: 10px; padding: 8px 13px;
+  display: flex; flex-direction: column; justify-content: center; gap: 2px; overflow: hidden;
+  transition: box-shadow .15s, transform .15s;
+}
+.p:hover { box-shadow: 0 0 0 2px var(--c); }
+.p:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.p.sel { box-shadow: 0 0 0 3px var(--accent); }
+.p .n { font-weight: 600; font-size: 15.5px; line-height: 1.25; }
+.p .s { font-size: 13.5px; color: var(--muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.p .d { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.p[data-s="patr"], .p[data-s="hyp"] { border-style: dashed; }
+.p[data-s="unk"] { border-style: dotted; color: var(--muted); }
+.p[data-s="unk"] .n { font-weight: 400; font-style: italic; }
+
+.tip {
+  position: fixed; z-index: 50; left: 0; top: 0; width: min(390px, calc(100vw - 24px)); max-height: min(72vh, 600px); overflow: auto;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px 16px;
+  display: flex; flex-direction: column; gap: 9px; box-shadow: 0 14px 40px var(--shadow);
+}
+.tiphead { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tip .x { font: inherit; font-size: 20px; line-height: 1; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer; }
+.tip .x:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.tip .who { font-family: var(--f-display); font-size: 23px; font-weight: 700; line-height: 1.15; text-wrap: balance; }
+.tip .maiden { color: var(--muted); font-size: 14px; }
+.tip p { margin: 0; font-size: 14px; }
+.tip .src { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
+.tip .more { font-size: 12.5px; color: var(--muted); }
+@media (hover: none) {
+  .tip { left: 0 !important; right: 0; top: auto !important; bottom: 0; width: auto; max-height: 66vh; border-radius: 16px 16px 0 0;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+}
+.chip { align-self: flex-start; font-size: 12px; font-weight: 600; border-radius: 999px; padding: 2px 10px; color: var(--c); background: var(--b); border: 1px solid var(--c); }
+.kv { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 4px 10px; font-size: 14px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+
+section { display: flex; flex-direction: column; gap: 14px; }
+.groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.group { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.group ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.group li { font-size: 14px; display: flex; flex-direction: column; gap: 1px; }
+.group li small { color: var(--muted); font-size: 12.5px; }
+.tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--c); }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.cols ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.note { font-size: 13px; color: var(--muted); max-width: 80ch; }
+
+.dlinks { display: flex; flex-direction: column; gap: 6px; }
+.dlinks button { text-align: left; font: inherit; font-size: 13px; line-height: 1.35; background: transparent; border: 1px solid var(--line); border-radius: 6px; padding: 6px 9px; color: var(--ink); cursor: pointer; }
+.dlinks button:hover { border-color: var(--accent); }
+.dlinks button:focus-visible, .filters button:focus-visible, .who button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--f-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 4px 12px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.doclist { display: flex; flex-direction: column; gap: 22px; }
+.doccat { display: flex; flex-direction: column; gap: 10px; }
+.doc { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 6px 16px; scroll-margin-top: 20px; transition: box-shadow .3s; }
+.doc.flash { box-shadow: 0 0 0 3px var(--accent); }
+.doc > .mono { padding-top: 2px; }
+.doc .body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.doc h4 { margin: 0; font-size: 15.5px; font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.doc .kv { grid-template-columns: 118px minmax(0, 1fr); font-size: 13.5px; }
+.doc .kv dd { overflow-wrap: anywhere; }
+.verb { font-family: var(--f-display); font-size: 15px; line-height: 1.45; background: var(--bg); border-radius: 6px; padding: 8px 12px; margin: 0; overflow-wrap: anywhere; }
+.verb::before { content: "Дослівно: "; font-family: var(--f-body); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.doc p { margin: 0; font-size: 14px; max-width: 80ch; }
+.rel { font-size: 12.5px; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; }
+.links a { color: var(--accent); overflow-wrap: anywhere; }
+.who { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12.5px; color: var(--muted); }
+.who button { font: inherit; font-size: 12.5px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; cursor: pointer; }
+.who button:hover { border-color: var(--accent); }
+@media (max-width: 600px) {
+  .doc { grid-template-columns: minmax(0, 1fr); }
+  .doc .kv { grid-template-columns: minmax(0, 1fr); }
+  .doc .kv dt { margin-top: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Справа kolisnyk-family · стан на 27.10.2026</div>
+    <h1>Родовід Колісників</h1>
+    <p class="lede">Предки Олексія Івановича Колісника за чотирма гілками: Колісники, Бойки (Палагнюки), Демчуки (Сауляки), Фертюки (Орлови). Колір рамки показує, наскільки кожна людина підтверджена документами. Натисніть на людину, щоб побачити подробиці й джерела.</p>
+  </header>
+
+  <div class="facts" id="facts"></div>
+
+  <div class="legend" id="legend"></div>
+
+  <div class="treewrap" id="treewrap">
+    <div class="toolbar">
+      <span class="hint" id="hint">Наведіть на людину, щоб побачити подробиці. Клік закріплює картку з документами. Дерево можна тягнути мишею, а масштабувати кнопками або Ctrl + колесо.</span>
+      <div class="zoom" role="group" aria-label="Масштаб">
+        <button type="button" id="zout" aria-label="Зменшити">−</button>
+        <span id="zval">100%</span>
+        <button type="button" id="zin" aria-label="Збільшити">+</button>
+        <button type="button" id="zfit">Усе дерево</button>
+        <button type="button" id="zfull">На весь екран</button>
+      </div>
+    </div>
+    <div class="pane" id="pane"><div class="stage" id="stage"><div class="canvas" id="canvas"></div></div></div>
+    <aside class="tip" id="card" role="dialog" aria-live="polite" hidden></aside>
+  </div>
+
+  <section>
+    <h2>Бічні гілки: брати, сестри, можливі родичі</h2>
+    <div class="groups" id="groups"></div>
+  </section>
+
+  <section id="docs">
+    <h2>Документи й джерела</h2>
+    <p class="note">Усе, що знайдено за час дослідження: сімейні свідоцтва, записи з метричних книг, військові картки, архівні каталоги. Біля кожного документа є архівний шифр, посилання на скан чи картку, дослівна цитата в оригінальному написанні й пояснення, що цей документ доводить і наскільки йому можна довіряти. Сімейні свідоцтва зберігаються у справі як фото; тут вони лише описані.</p>
+    <div class="filters" id="filters" role="group" aria-label="Тип документів"></div>
+    <div class="doclist" id="doclist"></div>
+  </section>
+
+  <section>
+    <h2>Де шукали й нічого не знайшли</h2>
+    <p class="note">Те, що запис не знайшовся, не означає, що його не існує. Часто його просто ще не оцифрували.</p>
+    <div class="groups" id="neg"></div>
+  </section>
+
+  <section>
+    <h2>Архівні справи, які варто замовити</h2>
+    <p class="note">Цих справ немає онлайн. Чернетки запитів лежать у справі (requests/), нічого ще не надіслано.</p>
+    <div class="groups" id="arch"></div>
+  </section>
+
+  <section>
+    <h2>Що уточнити</h2>
+    <div class="cols">
+      <div>
+        <h3>Розбіжності в документах</h3>
+        <ul>
+          <li>Народження Анастасії: у свідоцтві читається 4 березня 1949, у дереві 4 квітня.</li>
+          <li>Місце народження Анастасії: «Томашполь» (свідоцтво 1949) чи «Томашпілка» (свідоцтво про шлюб 1968).</li>
+          <li>Шлюб Петра й Віри: 8 серпня 1970 у свідоцтві, 7 серпня в дереві.</li>
+          <li>Батько Івана Петровича Демчука: кандидат Петро Андрійович (1898) не узгоджується з кандидатом у брати Юхимом Петровичем (1909).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Де шукати далі</h3>
+        <ul>
+          <li>Розпитати Віру Антонівну, Віктора Фертюка, Бориса й Надію Бойко за питальником.</li>
+          <li>Сфотографувати надгробки в Томашполі та Раковому.</li>
+          <li>Книги Троїцької ц. Томашполя 1891–1920 і Рожнятівки 1886–1920 онлайн відсутні: потрібен запит до архіву у Вінниці.</li>
+          <li>Онлайн ще можна: сповідні відомості 1887–1897 рр. (родина Василя Орлова в Богородицькому), хрещення Платона Краснопевцева в Крапивні 1855–1857 рр.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">Живих людей показано лише з роком народження.</p>
+  </section>
+</div>
+
+<script>
+const ST = {
+  self: { label: "Ви", c: "--self", b: "--self-bg" },
+  doc2: { label: "Підтверджено кількома документами", c: "--doc2", b: "--doc2-bg" },
+  doc1: { label: "Один документ", c: "--doc1", b: "--doc1-bg" },
+  oral: { label: "Зі слів родини", c: "--oral", b: "--oral-bg" },
+  patr: { label: "Ім'я відоме з по батькові", c: "--patr", b: "--patr-bg" },
+  hyp:  { label: "Гіпотеза, перевіряється", c: "--hyp", b: "--hyp-bg" },
+  unk:  { label: "Невідомо", c: "--unk", b: "--unk-bg" },
+};
+
+const P = {
+  me: { n: "Олексій Іванович", s: "Колісник", d: "1997", place: "Томашпіль", st: "self",
+    info: "Замовник дослідження. Всі предки, наскільки відомо, православні." , src: "—" },
+  ivan: { n: "Іван Михайлович", s: "Колісник", d: "1970", place: "Томашпіль", st: "oral",
+    info: "Шлюб з Антоніною Демчук у 1997 р., Томашпіль.", src: "Родинне дерево, складене Олексієм" },
+  antonina: { n: "Антоніна Петрівна", s: "Колісник", m: "Демчук", d: "1973", place: "Томашпіль", st: "oral",
+    info: "Донька Петра Демчука й Віри Фертюк.", src: "Родинне дерево" },
+  mykhailo: { n: "Михайло Олексійович", s: "Колісник", d: "5.01.1941", place: "с. Ракова (Ракове), Томашпільський р-н", st: "doc2",
+    info: "Народився в Раковій. Запис про народження відновлено Томашпільським райбюро ЗАГС 16.12.1949 (№ 2350). Шлюб з Анастасією Бойко 1.09.1968 у Томашполі.",
+    src: "Свідоцтво про народження; свідоцтво про шлюб 1968; родинне дерево" },
+  anastasia: { n: "Анастасія (Настасія) Трохимівна", s: "Колісник", m: "Бойко", d: "1949 (4.III або 4.IV)", place: "Томашпіль / Томашпілка", st: "doc1",
+    info: "У свідоцтві про народження читається 4 березня 1949, у дереві 4 квітня. У свідоцтві про шлюб 1968 місцем народження вказано Томашпілку. Брат і сестра: Борис і Надія Бойко.",
+    src: "Свідоцтво про народження 1949; свідоцтво про шлюб 1968" },
+  petro: { n: "Петро Іванович", s: "Демчук", d: "1947", place: "с. Рожнятівка", st: "doc1",
+    info: "Шлюб з Вірою Фертюк 8.08.1970 у Томашполі (у дереві 7.08).", src: "Свідоцтво про шлюб 1970; родинне дерево" },
+  vira: { n: "Віра Антонівна", s: "Демчук", m: "Фертюк", d: "1950", place: "радгосп «Красный свиновод», Чамзинський р-н, Мордовія", st: "doc1",
+    info: "Народилась у Мордовії, де тоді жили її батьки. Брат: Віктор Фертюк. Вона і брат — головні живі свідки для гілок Фертюків і Орлових.",
+    src: "Свідоцтво про народження 1950; свідоцтво про шлюб 1970" },
+
+  oleksii: { n: "Олексій Харлампійович", s: "Колісник", d: "дати невідомі", place: "с. Ракова", st: "doc1",
+    info: "Батько Михайла за його свідоцтвом про народження. У військових базах не знайдений. Можливі брати: Іван Харлампович (1903/1908) і Степан Харлампійович (1909).",
+    src: "Свідоцтво про народження Михайла (запис 1949)" },
+  ksenia: { n: "Ксенія Трифонівна", s: "Колісник", m: "?", d: "дати невідомі", place: "с. Ракова?", st: "doc1",
+    info: "Мати Михайла за свідоцтвом. Дівоче прізвище невідоме — варто спитати родичів у Раковому.",
+    src: "Свідоцтво про народження Михайла" },
+  trokhym: { n: "Трохим Павлович", s: "Бойко", d: "дати невідомі", place: "Томашпіль / Ракова?", st: "doc1",
+    info: "Батько Анастасії за свідоцтвом 1949.", src: "Свідоцтво про народження Анастасії" },
+  mariaB: { n: "Марія Семенівна", s: "Бойко", m: "Палагнюк", d: "дати невідомі", place: "Томашпілка", st: "doc1",
+    info: "Мати Анастасії за свідоцтвом. Дівоче прізвище Палагнюк — зі слів родини. Можливий брат: Петро Семенович Палагнюк (1921, Томашпілка).",
+    src: "Свідоцтво про народження Анастасії; родинне дерево" },
+  ivanD: { n: "Іван Петрович", s: "Демчук", d: "дати невідомі", place: "с. Рожнятівка", st: "oral",
+    info: "Відомий лише з родинного дерева. Можливий брат: Юхим Петрович Демчук (1909, Рожнятівка).", src: "Родинне дерево" },
+  mariaD: { n: "Марія Родіонівна", s: "Демчук", m: "Сауляк", d: "7.04.1920", place: "с. Рожнятівка", st: "oral",
+    info: "Дата народження з родинного дерева. Онлайн-книг Рожнятівки після 1885 р. немає.", src: "Родинне дерево" },
+  anton: { n: "Антон Іванович", s: "Фертюк", d: "6.01.1902", place: "с. Кислицьке → Мордовія → Томашпіль", st: "doc1",
+    info: "Батько Віри за свідоцтвом 1950. Дата народження з родинного дерева. Похований у Томашполі (надгробок бачив Олексій, дат не пам'ятає). Рід Фертюків жив у Кислицькому. Можливий брат: Євсей Іванович (1913).",
+    src: "Свідоцтво про народження Віри; родинне дерево; слова Олексія" },
+  valentyna: { n: "Валентина Євграфівна", s: "Фертюк", m: "Орлова", d: "6.11.1907 ст. ст.", place: "м. Єфремов, Тульська губ.", st: "doc2",
+    info: "Народилась 6 листопада 1907 за старим стилем (19 листопада за новим), охрещена в Преображенській церкві Єфремова. Брати й сестри: Августа (1904), Володимир (1906), Ніна (1909), Лідія (1912).",
+    src: "Метрична книга Єфремова 1907, два примірники (ГАТО); свідоцтво Віри 1950" },
+
+  kharlampii: { n: "Харлампій", s: "Колісник", d: "нар. ~1865–1889?", place: "Ракова?", st: "patr",
+    info: "Ім'я відоме з по батькові Олексія. Книги обох церков Томашполя за 1876, 1877 і 1890 рр. прочитано повністю: Харлампія Колесника там немає, отже, він, імовірно, народився в 1878–1889 рр., а за ці роки онлайн-книг немає. Зате знайшлися Колесники, серед яких може бути його батько: Михайло Петрович з дружиною Марією Ісидорівною (с. Ракова, 1890), Семен Артемович (Томашпіль, 1876–77), Андрій Карпович (1876).",
+    src: "По батькові онука; книги 1876, 1877, 1890" },
+  trifon: { n: "Трифон", s: "прізвище невідоме", d: "", place: "", st: "patr",
+    info: "Батько Ксенії; ім'я відоме лише з її по батькові.", src: "По батькові" },
+  pavlo: { n: "Павло", s: "Бойко", d: "", place: "Ракова?", st: "patr",
+    info: "Ім'я з по батькові Трохима. Кандидат: «Павелъ Мироновъ Бойко» з дружиною Ириною Александровою, с. Ракова; у 1890 р. в них народилась донька Ѳекла. Він із великої родини Мирона Бойка з Ракової: брати Іван, Афанасій (солдат), Никифор, Аким і сестра Параскева. Збіг із нашим Павлом поки лише за іменем і селом.",
+    src: "По батькові; МК Троїцької ц. Томашполя 1890 (кандидат)" },
+  semen: { n: "Семен", s: "Палагнюк", d: "", place: "Томашпілка?", st: "patr",
+    info: "Ім'я з по батькові Марії. Палагнюки в 1877–1890 рр. — численна родина саме в Раковій (Даниїл і Полікарп Фокичі, Іпатій Іванович, Яків Степанович, Ілля Никифорович) і в Томашполі. Семен Леонтійович Палагнюк з Ракової помер у 1877 р., тож він не може бути батьком Марії, але міг бути родичем.", src: "По батькові; книги 1877, 1890" },
+  petroD: { n: "Петро", s: "Демчук", d: "", place: "Рожнятівка", st: "patr",
+    info: "Ім'я з по батькові Івана. Кандидат: Петро Андрійович Демчук (1898, Рожнятівка, загинув 9.06.1944 у Румунії, дружина Ксенія Корніївна). Це суперечить іншій гіпотезі: Юхим Петрович (1909) не міг бути сином людини 1898 р. н.",
+    src: "По батькові; Память народа (кандидат)" },
+  rodion: { n: "Родіон", s: "Сауляк", d: "", place: "Рожнятівка", st: "patr",
+    info: "Ім'я з по батькові Марії. У книзі 1890 р. Сауляки — одна з найбільших родин Ракової (брати Георгій, Микола й Іларіон Харитоновичі та інші). Сауляк Степан Іларіонович (1888, Ракова, розстріляний 1938), ймовірно, син Іларіона Харитоновича. Родіон міг походити з цього ж роду, але це не перевірено.", src: "По батькові; книга 1890" },
+  ivanF: { n: "Іван", s: "Фертюк", d: "", place: "Кислицьке", st: "patr",
+    info: "Ім'я з по батькові Антона. Книги с. Паланка 1866, 1871, 1876 (куди іноді приписували Кислицьке) прочитано: Фертюків немає. Власні книги Кислицького за 1898–1913 рр. є лише у Вінницькому архіві, не оцифровані.", src: "По батькові" },
+  evgraf: { n: "Євграф Васильович", s: "Орлов", d: "нар. ~1883", place: "м. Єфремов, Тульська губ.", st: "doc2",
+    info: "Народився 10.12.1883 у с. Богородицькому (-Лапотцовому) Єфремівського повіту в родині псаломщика. З 1903 р. виконував обов'язки псаломщика Преображенської церкви Єфремова, тієї самої, де за штатом був його батько. У 1909 р. став штатним псаломщиком цієї церкви, у 1912 р. — Троїцького собору. Шлюб з Олександрою Краснопевцевою 28.01.1904, свідком нареченого був її дядько Олексій Пимонович Георгієвський. Мав рідних братів Григорія (1882), Михайла (1884), Василя (1887) і зведених братів Павла, Івана, Олексія. Доля після 1917 р. невідома.",
+    src: "Метричні книги Єфремова 1903–1912; сповідні відомості 1904, 1905, 1908" },
+  oleksandra: { n: "Олександра Платонівна", s: "Орлова", m: "Краснопевцева", d: "4.11.1887 ст. ст.", place: "м. Єфремов", st: "doc2",
+    info: "Народилась у Єфремові (Соборна Троїцька ц.), записана крапивенською міщанкою. Мала 9 братів і сестер (1884–1903): Віра (1884, померла 1885), Сергій, Лідія, Олексій, Микола, Глафіра, Лариса, Платон, Борис. Усіх дітей хрестили купці Долгови, родичі її матері. Народження наймолодшого брата Бориса в 1903 р. записав у книгу псаломщик Євграф Орлов — її майбутній чоловік.",
+    src: "Метрика народження 1887; запис про шлюб 1904" },
+
+  vasyl: { n: "Василь Семенович", s: "Орлов", d: "~1844 – 8.12.1903", place: "с. Богородицьке → м. Єфремов", st: "doc2",
+    info: "Псаломщик. У 1882–1887 рр. служив при Спаській церкві с. Богородицького (-Лапотцового), з 1887 — штатним псаломщиком. Згодом перейшов до Преображенської церкви Єфремова, де помер «заштатним» (тобто вже на спокої) псаломщиком 8.12.1903 у 59 років від сухот. Через 7 тижнів у цій самій церкві вінчався Євграф, який перебрав посаду. Прямого запису «Євграф — син Василя» немає, але три незалежні групи документів сходяться і не суперечать одна одній. Від першого шлюбу мав синів Павла, Івана й Олексія.",
+    src: "Метрики 1882–1887 (Богородицьке); смерть 1903 (Єфремов); сповідні відомості 1904–1908" },
+  iroida: { n: "Іроїда Гаврилівна", s: "Орлова", d: "", place: "с. Богородицьке → м. Єфремов", st: "doc2",
+    info: "Друга дружина Василя Орлова, мати Григорія, Євграфа, Михайла й Василя. Після смерті чоловіка жила в Єфремові, в парафії Преображенської церкви, поруч із сином Євграфом. Там її записано в сповідних відомостях 1904, 1905 і 1908 рр. як «вдова псаломщика Василія Орлова», разом із пасинками Павлом, Іваном й Олексієм.",
+    src: "Метрики 1882–1887; сповідні відомості 1904–1908" },
+  semenO: { n: "Семен", s: "Орлов", d: "", place: "", st: "patr",
+    info: "Ім'я з по батькові Василя. Можлива зачіпка: хрещена 1884 р. — Агриппина Семенівна, дружина псаломщика Дмитра Архангельського; вона могла бути сестрою Василя.", src: "По батькові" },
+  platon: { n: "Платон Дмитрович", s: "Краснопевцев", d: "нар. ~1856", place: "крапивенський міщанин, жив у Єфремові", st: "doc2",
+    info: "Одружився 17.10.1882 у Єфремові. 10 дітей 1884–1903. У записах прізвище пишеться і Краснопевцев, і Краснопивцев.",
+    src: "Шлюб 1882; метрики дітей 1884–1903; шлюб доньки 1904" },
+  mariaK: { n: "Марія Пимонівна", s: "Краснопевцева", m: "Георгієвська", d: "1.06.1865", place: "м. Богородицьк → Єфремов", st: "doc2",
+    info: "Народилась 1 червня 1865 р. в Богородицьку (Соборна Троїцька ц.), хрещений — її дядько Микола Стефанович Долгов. Вийшла заміж у 17 років. Попри «церковне» прізвище, її батько був міщанином, а не священником. Брати й сестри: Олександр (1862), Олександра (1868), Микола (1870), Олексій (1874) та ще троє, що померли малими.",
+    src: "Метрика 1865; шлюб 1882; метрики дітей 1884–1903" },
+  dmytro: { n: "Дмитро", s: "Краснопевцев", d: "", place: "Крапивна?", st: "patr",
+    info: "Ім'я з по батькові Платона. Хрещення Платона (~1856, Крапивна) не проіндексоване; його можна знайти, прогорнувши крапивенські книги 1855–1857 рр.", src: "По батькові" },
+  pymon: { n: "Пимон Дмитрович", s: "Георгієвський", d: "~1832 – 8.09.1900", place: "м. Богородицьк", st: "doc2",
+    info: "Богородицький міщанин. Одружився 15.02.1853 у Богородицьку з Анною Стефанівною Долговою. Діти: Варвара (1853), Гавриїл, Матвій (померли малими), Олександр (1862), Марія (1865), Олександра (1868), Микола (1870), Олексій (1874). Помер 8.09.1900 у 70 років.",
+    src: "Шлюб 1853; метрика доньки 1865; покажчик смерті 1900" },
+  annaD: { n: "Анна Стефанівна", s: "Георгієвська", m: "Долгова", d: "~1833", place: "м. Богородицьк", st: "doc1",
+    info: "Донька Стефана Івановича Долгова з купецького роду. Через неї купці Долгови — родичі: її брат Іван Степанович Долгов (єфремівський купець) хрестив дітей Краснопевцевих, а його син Михайло Іванович — Валентину Орлову в 1907 р. Тобто хрещені в кожному поколінні були з родини.",
+    src: "Шлюб 1853; метрика доньки 1865" },
+  dmytroG: { n: "Дмитро", s: "Георгієвський", d: "", place: "", st: "patr",
+    info: "Ім'я з по батькові Пимона.", src: "По батькові" },
+  stefanD: { n: "Стефан Іванович", s: "Долгов", d: "", place: "м. Богородицьк", st: "doc1",
+    info: "Батько Анни, з богородицького купецького роду (стан читається частково). Його сини Іван і Микола Степановичі були хрещеними в наступних поколіннях.",
+    src: "Шлюб 1853" },
+};
+
+const FS = "https://www.familysearch.org/ark:/61903/";
+const CATS = {
+  fam: "Сімейні документи та свідчення",
+  mk: "Метричні книги",
+  war: "Військові записи",
+  cat: "Архівні каталоги й довідники",
+  rep: "Репресії та Голодомор",
+};
+const DOCS = [
+  // Сімейні
+  { id: "A-0017", cat: "fam", t: "Свідоцтво про народження Михайла Олексійовича Колесника",
+    date: "5.01.1941 (запис відновлено 16.12.1949)", ref: "Томашпольское райбюро ЗАГС, актовий запис № 2350 від 16.12.1949, позначка «Запись восстановлена»",
+    place: "село Рокова [= Ракова], р-н Томашпольский, обл. Винницкая; реєстрація: м. Томашполь",
+    verb: "Колесник Михаил Алексеевич; отец Колесник Алексей Харлампиевич [написано приблизно «Харлампьевич»], украинец; мать Колесник Ксения Трифоновна, украинка",
+    sum: "Михайло народився 5 січня 1941 р. в Раковій. Його батьки — Олексій Харлампійович і Ксенія Трифонівна. Оригінальний запис 1941 р., імовірно, загинув під час окупації, тому в 1949 р. його відновили, ймовірно, зі слів батьків.",
+    rel: "Прямий документ, сильний. Відновлений через 8 років після події.", file: "inputs/birth-cert-Kolesnik-Mykhailo-1941.png",
+    who: ["mykhailo", "oleksii", "ksenia", "kharlampii", "trifon"] },
+  { id: "A-0019", cat: "fam", t: "Свідоцтво про шлюб Михайла Колісника й Настасії Бойко",
+    date: "1.09.1968", ref: "Томашпільське райбюро ЗАГС, актовий запис № 27 від 01.09.1968",
+    place: "Михайло: 1941, Ракова Томашпільського р-ну Вінницької обл.; Настасія: 1949, Томашпіль [написано приблизно «Томашпілка»]",
+    verb: "Колісник Михайло Олексійович; Бойко Настасія Трохимівна",
+    sum: "Шлюб 1 вересня 1968 р. у Томашполі, обоє взяли прізвище Колісник. Це друге, незалежне підтвердження того, що Михайло народився в Раковій.",
+    rel: "Прямий документ.", file: "inputs/marriage-cert-Kolisnyk-Boyko-1968.png", who: ["mykhailo", "anastasia"] },
+  { id: "A-0018", cat: "fam", t: "Свідоцтво про народження Анастасії Трохимівни Бойко",
+    date: "4.III.1949 (ймовірне читання)", ref: "Томашпольский сельский совет, актовий запис № 6 від 15 [березня] 1949",
+    place: "Томашполь, Томашпольский р-н, Винницкая обл.",
+    verb: "Бойко Анастасия Тр[офим]овна; отец Бойко Трофим Павлович, украинец; мать Бойко Мария Семеновна, украинка",
+    sum: "Батьки Анастасії — Трохим Павлович і Марія Семенівна Бойко. Дівоче прізвище Марії (Палагнюк) тут не вказане. Дата читається як «четвертого марта», а в родинному дереві стоїть 4 квітня.",
+    rel: "Прямий документ, частково нерозбірливий.", file: "inputs/birth-cert-Boyko-Anastasiia-1949.png",
+    who: ["anastasia", "trokhym", "mariaB", "pavlo", "semen"] },
+  { id: "A-0020", cat: "fam", t: "Свідоцтво про шлюб Петра Демчука й Віри Фертюк",
+    date: "8.08.1970", ref: "Томашпольское райбюро ЗАГС, актовий запис № 29 від 08.08.1970",
+    place: "Петр: 1947, Рожнятовка Томашпольского р-на Винницкой обл.; Вера: 1950, МАССР Чамзинский р-н совхоз «Красный свиновод»",
+    verb: "Демчук Петр Иванович; Фертюк Вера Антоновна",
+    sum: "Шлюб 8 серпня 1970 р. (у родинному дереві 7 серпня). Тут уперше записано точну назву радгоспу, де народилась Віра.",
+    rel: "Прямий документ.", file: "inputs/marriage-cert-Demchuk-Fertiuk-1970.png", who: ["petro", "vira"] },
+  { id: "A-0021", cat: "fam", t: "Свідоцтво про народження Віри Антонівни Фертюк (двомовне, мордовсько-російське)",
+    date: "28.07.1950", ref: "Апраксинский сельсовет (бюро ЗАГС), актовий запис № 31 від 16.08.1950",
+    place: "совхоз «Красный [свиновод]», Чамзинский р-н, МАССР",
+    verb: "Фертюк Вера Антоновна; отец Фертюк Антон Иванович, украинец; мать Фертюк Валентина Евграфовна, украинка",
+    sum: "Батьки Віри — Антон Іванович і Валентина Євграфівна Фертюк. Валентину записано українкою, хоча вона народилась у Єфремові в російській родині.",
+    rel: "Прямий документ.", file: "inputs/birth-cert-Fertiuk-Vira-1950.png", who: ["vira", "anton", "valentyna", "ivanF"] },
+  { id: "A-0022", cat: "fam", t: "Паспорт Віри Антонівни Демчук (переглянуто, у справі не збережено)",
+    date: "1996", ref: "приватний документ",
+    sum: "Підтверджує дату й місце народження Віри. Паспорт виданий на підставі свідоцтва, тож окремим доказом не рахується. Номери документа свідомо не записані.",
+    rel: "Похідний від свідоцтва A-0021.", who: ["vira"] },
+  { id: "A-0001", cat: "fam", t: "Родинне дерево, складене Олексієм",
+    ref: "приватний", sum: "Таблиця з сімейної пам'яті: 15 осіб чотирьох гілок з датами й місцями. Джерел у ній не вказано.",
+    rel: "Сімейна пам'ять. Добра наводка, але не доказ.", file: "inputs/family-tree-user.png",
+    who: ["me", "ivan", "antonina", "mykhailo", "anastasia", "petro", "vira", "oleksii", "ksenia", "trokhym", "mariaB", "ivanD", "mariaD", "anton", "valentyna", "petroD", "rodion"] },
+  { id: "A-0033", cat: "fam", t: "Свідчення Олексія: надгробок Антона Фертюка в Томашполі",
+    sum: "Олексій бачив надгробок Антона Фертюка на кладовищі в Томашполі, але дат не пам'ятає. Отже, Антон повернувся з Мордовії в Томашпіль. Онлайн-фото цього кладовища (BillionGraves, FindAGrave, FamilySearch) немає.",
+    rel: "Спостереження очевидця. Дати дасть фото надгробка.", who: ["anton"] },
+  { id: "A-0034", cat: "fam", t: "Свідчення Олексія: родичі в Раковому",
+    sum: "У Раковому живуть родичі: «дядько» Козачук одружений з жінкою з роду Бойко або Палагнюк, можливо племінницею діда Михайла чи баби Анастасії. Через них можна сфотографувати надгробки й розпитати про Харлампія та Бойків.",
+    rel: "Спогад. Корисний як контакт на місці.", who: ["trokhym", "mariaB", "oleksii"] },
+
+  // Метричні книги
+  { id: "A-0023", cat: "mk", t: "Народження Валентини Орлової, Преображенська церква Єфремова, 1907",
+    date: "нар. 6.11.1907, хрещ. 7.11.1907 (ст. ст.)", ref: "ГАТО ф. 93 оп. 2 спр. 681, арк. 252; ч. 1 «о родившихся», № 113; FamilySearch DGS 7563366, кадр 63",
+    place: "г. Ефремов, Преображенская церковь",
+    verb: "Валентина. «Города Ефремова Преображенской церкви и. д. псаломщика Евграф Васильев Орлов и законная жена его Александра Платонова, оба православные». Восприемники: Ефремовский купец Михаил Иоаннов Долгов и купеческая вдова Юлия Павлова Долгова",
+    sum: "Валентина народилась 6 листопада 1907 р. за старим стилем (19 листопада за новим). Дата збігається з сімейною: радянські документи переписали її без перерахунку на новий стиль. Хрещені — купці Долгови.",
+    rel: "Прямий запис, перевірений скептиком. Консисторський примірник книги.",
+    links: [[FS + "3:1:3QS7-996D-8H1", "скан"], [FS + "1:1:X4ZZ-N71S", "індекс"]], who: ["valentyna", "evgraf", "oleksandra"] },
+  { id: "A-0024", cat: "mk", t: "Другий примірник запису про Валентину, з радянськими позначками 1930 і 1951 рр.",
+    date: "6.11.1907", ref: "FamilySearch DGS 7564554, кадр 203 (причтовий примірник, згодом у ЗАГС)",
+    place: "Г. Ефрем. Преображен. ц.", verb: "Валентина; Евграф Васильевич Орлов и жена Александра Платоновна",
+    sum: "Це окремий оригінал того самого запису. На полях є позначки «Выд. свид. …30 г.» і «Выд. …1951»: дорослій Валентині двічі видавали свідоцтво про народження. Позначка 1951 р. збігається з часом, коли родина жила в Мордовії.",
+    rel: "Прямий запис, другий незалежний примірник.", links: [[FS + "3:1:3QS7-L966-XVS8", "скан"]], who: ["valentyna"] },
+  { id: "A-0025", cat: "mk", t: "Шлюб Євграфа Орлова й Олександри Краснопивцевої, Єфремов, 1904",
+    date: "28.01.1904 (ст. ст.)", ref: "ГАТО ф. 93 оп. 2 спр. 664; ч. 2 «о бракосочетавшихся», № 12; FamilySearch DGS 7563388, кадр 742",
+    place: "г. Ефремов, Преображенская ц.",
+    verb: "Евграф Васильев Орлов, и. д. псаломщика, 20 л., первым браком; Крапивенская мещанка Платона Димитриева Краснопивцева дочь девица Александра Платонова Краснопивцева, 16 л.",
+    sum: "Шлюб батьків Валентини. Документ дає дівоче прізвище Олександри та ім'я її батька, Платона Дмитровича. Нареченому 20 років, отже, він народився між лютим 1883 і січнем 1884 р. Звідки він родом, не сказано. Свідки нареченого: «окончившій курсъ Тульской Духовной Семинаріи Леонидъ Ивановъ Орестовъ и Богородицкій мѣщанинъ Алексѣй Пименовъ Георгіевскій» — другий з них дядько нареченої. Вінчали священник Петро Руднєв і псаломщик Тихон Адамов.",
+    rel: "Прямий запис, перевірений скептиком.", links: [[FS + "3:1:3QS7-L96D-8DD3", "скан"]], who: ["evgraf", "oleksandra", "platon", "dmytro"] },
+  { id: "A-0026", cat: "mk", t: "Народження Володимира Орлова, брата Валентини, 1906",
+    date: "15.06.1906 (ст. ст.)", ref: "ГАТО ф. 93 оп. 2 спр. 676; № 55; FamilySearch DGS 7563370, кадр 314",
+    place: "г. Ефремов", verb: "Владимир; родители Евграф Васильев Орлов и Александра Платонова",
+    sum: "Брат Валентини. Збігається з бійцем Володимиром Євграфовичем Орловим 1906 р. н. з Єфремова, який зник безвісти в 1942 р. (див. A-0012).",
+    rel: "Прямий запис.", links: [[FS + "3:1:3QS7-996D-NJ8X", "скан"]], who: ["evgraf", "oleksandra"] },
+  { id: "A-0027", cat: "mk", t: "Народження Августи, Ніни й Лідії Орлових, сестер Валентини",
+    date: "22.11.1904; 26.12.1909; 12.03.1912", ref: "ГАТО ф. 93 (покажчик FamilySearch і скани)", place: "Ефремов",
+    verb: "Августа; Нина; Лидия", sum: "Ще три доньки Євграфа й Олександри. Скептик звірив усі три записи зі сканами.",
+    rel: "Прямі записи.", links: [[FS + "1:1:XS84-JYB2", "Августа"], [FS + "1:1:X4HT-15Y2", "Ніна"], [FS + "1:1:XSLP-CJZJ", "Лідія"]], who: ["evgraf", "oleksandra"] },
+  { id: "A-0039", cat: "mk", t: "Народження Лідії, 1912: Євграф — псаломщик Троїцького собору",
+    date: "12.03.1912", ref: "ГАТО ф. 93 оп. 3; № 6; FamilySearch DGS 7564455, кадр 937", place: "г. Ефремов",
+    verb: "Соборной Троицкой города Ефремова церкви Псаломщикъ Евграфъ Васильевъ Орловъ",
+    sum: "У 1912 р. Євграф уже штатний псаломщик головного храму міста, Троїцького собору. У 1904–1907 він лише виконував обов'язки псаломщика в Преображенській церкві. У тій самій книзі він ще й хрещений батько чужої дитини.",
+    rel: "Прямий запис.", links: [[FS + "3:1:3QSQ-G966-CSB9", "скан"]], who: ["evgraf"] },
+  { id: "A-0035", cat: "mk", t: "Народження Олександри Краснопевцевої, Соборна Троїцька церква Єфремова, 1887",
+    date: "4.11.1887 (ст. ст.)", ref: "ГАТО ф. 93 оп. 1; № 40; FamilySearch DGS 7563421, кадр 885 (титул — кадр 870)",
+    place: "г. Ефремов, Соборная Троицкая ц.",
+    verb: "Александра; Крапивенский мещанин Платонъ Димитріевъ Краснопѣвцевъ и Марія Пименова; восприемники: Ефремовский купец Иван Степанов Д[олг]ов и девица Мария",
+    sum: "Народження прапрабабусі Олександри; батьки — Платон Дмитрович і Марія Пимонівна. Хрещений — купець Іван Степанович Долгов, рідний дядько її матері (див. A-0045). Через 20 років його син Михайло Іванович Долгов хрестив Валентину (A-0023).",
+    rel: "Прямий запис, перевірений скептиком.", links: [[FS + "3:1:3QS7-996D-JXCB", "скан"], [FS + "1:1:XS8J-HXHR", "індекс"]], who: ["oleksandra", "platon", "mariaK"] },
+  { id: "A-0036", cat: "mk", t: "Шлюб Платона Краснопевцева й Марії Георгієвської, Єфремов, 1882",
+    date: "17.10.1882 (ст. ст.)", ref: "ГАТО ф. 93 оп. 1; № 14; FamilySearch DGS 7563401, кадр 232", place: "г. Ефремов",
+    verb: "Крапивенский мещанин Платонъ Димитріевъ Краснопѣвцевъ, 26 л.; девица Марія Пименова Георгіевская, Богородицкая мещанка, 17 л.",
+    sum: "Шлюб прапрапрадідів. Документ дає дівоче прізвище Марії та ім'я її батька, Пимона. Платон народився близько 1856 р., Марія — близько 1865 р. Церкву титульним аркушем ще не підтверджено.",
+    rel: "Прямий запис.", links: [[FS + "3:1:3QS7-996D-NZV5", "скан"], [FS + "1:1:XS84-VJPN", "індекс"]], who: ["platon", "mariaK", "dmytro", "pymon"] },
+  { id: "A-0037", cat: "mk", t: "Десятеро дітей Платона й Марії Краснопевцевих, 1884–1903",
+    date: "1884–1903", ref: "ГАТО ф. 93 (покажчик FamilySearch)", place: "Ефремов",
+    verb: "Вера 1884, Сергий 1886, Александра 1887, Лидия 1890, Алексий 1892, Николай 1893, Глафира 1896, Лариса 1898, Платон 1901, Борис 1903",
+    sum: "Брати й сестри Олександри. 6 із 10 записів звірено зі сканами.", rel: "Покажчик плюс частина сканів.",
+    links: [["https://www.familysearch.org/en/search/record/results?q.fatherGivenName=%D0%9F%D0%BB%D0%B0%D1%82%D0%BE%D0%BD&q.motherGivenName=%D0%9C%D0%B0%D1%80%D0%B8%D1%8F&q.motherSurname=%D0%9F%D0%B8%D0%BC%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0", "пошук на FamilySearch"]],
+    who: ["platon", "mariaK", "oleksandra"] },
+  { id: "A-0038", cat: "mk", t: "Народження Евграфа, син псаломщика Василя Орлова, с. Богородицьке, 1883 (кандидат)",
+    date: "10.12.1883 (ст. ст.)", ref: "ГАТО ф. 93 оп. 1; № 73; FamilySearch DGS 7563405, кадр 667 (титул — кадр 626)",
+    place: "Спасская ц. с. Богородицкое (Лапот[ки?]), Ефремовский у.",
+    verb: "Евграфъ; родители псаломщикъ Василій Семеновъ Орловъ и Ироида Гавриилова",
+    sum: "Це єдиний Евграф з батьком Василем, народжений у 1881–1886 рр. у Тульській губернії. У раунді 4 зв'язок із нашим Євграфом підтвердився непрямо: Василь Семенович згодом служив у тій самій Преображенській церкві Єфремова, що й Євграф, і помер там у 1903 р. (A-0041), а вдова Іроїда жила поруч з Євграфом (A-0042).",
+    rel: "Прямий запис. Ототожнення підтверджене непрямими доказами з кількох джерел.", links: [[FS + "3:1:3QS7-896D-JNZQ", "скан"], [FS + "1:1:XS8H-F81C", "індекс"]], who: ["vasyl", "iroida", "evgraf"] },
+  { id: "A-0041", cat: "mk", t: "Смерть заштатного псаломщика Василя Семеновича Орлова, Преображенська церква Єфремова, 1903",
+    date: "† 8.12.1903, похований 11.12 (ст. ст.)", ref: "ГАТО ф. 93 оп. 2 спр. 658, ч. 5, арк. 285; № 81; FamilySearch DGS 7563357, кадр 942",
+    place: "Преображенской, города Ефремова, церкви",
+    verb: "Преображенской, города Ефремова, церкви заштатный псаломщикъ Василій Сѵмеоновъ Орловъ. 59. Отъ чахотки. Погребенъ на городскомъ кладбищѣ",
+    sum: "Василь Семенович Орлов помер 8 грудня 1903 р. у 59 років (народився близько 1844) від сухот, будучи заштатним псаломщиком тієї самої церкви, де Євграф виконував обов'язки псаломщика і через 7 тижнів вінчався. Типова для духовенства історія: син переймає посаду батька.",
+    rel: "Прямий запис, перевірений скептиком. Дружину й дітей не названо.", links: [[FS + "3:1:3QSQ-G96D-DW3N", "скан"], [FS + "1:1:XSZ1-DJVP", "індекс"]], who: ["vasyl", "evgraf"] },
+  { id: "A-0042", cat: "mk", t: "Сповідні відомості духовенства Єфремова, 1904, 1905, 1908: Євграф, Олександра й удова Іроїда",
+    date: "1904; 1905; 1908", ref: "ГАТО ф. 3 оп. 16 спр. 610, 611, 612 (за каталогом); FamilySearch DGS 7559485, кадри 555, 616, 869",
+    place: "Города Ефремова, Преображенской Церкви",
+    verb: "И. д. Псаломщика Евграфъ Васильевъ Орловъ / Жена его Александра Платонова / Вдова Псаломщика Василія Орлова Ироида Гавріилова / Пасынки ея Павелъ, Іоаннъ, Алексѣй",
+    sum: "Щорічні списки духовенства, яке говіло й сповідалося. В усіх трьох роках у розділі Преображенської церкви поруч записані Євграф з дружиною і «вдова псаломщика Василія Орлова Ироида Гавриилова». Іроїда й Гавриїл — рідкісні імена, і саме так звали матір Евграфа 1883 р. Її пасинки Павло, Іван, Олексій — сини Василя від першого шлюбу.",
+    rel: "Записи перевірені трьома скептиками. Що Іроїда — мати Євграфа, прямо не написано.", links: [[FS + "3:1:3QS7-9969-7VLZ", "1904"], [FS + "3:1:3QS7-L969-72LH", "1905"], [FS + "3:1:3QS7-L969-7KXW", "1908"]], who: ["evgraf", "oleksandra", "iroida", "vasyl"] },
+  { id: "A-0043", cat: "mk", t: "Брати Євграфа: Григорій 1882, Михайло 1884, Василь 1887, с. Богородицьке",
+    date: "23.12.1882; 13.12.1884; 17.06.1887", ref: "ГАТО ф. 93 оп. 1; DGS 7563403 кадр 369; DGS 7563412 кадр 833; DGS 7563424 кадр 544",
+    place: "Спасская ц. с. Богородицкаго-Лопотц[ово]",
+    verb: "Исправляющій должность Псаломщика при сей Спасской церкви Василій Семеновъ Орловъ и законная его жена Ироида Гавріилова, оба православные",
+    sum: "Рідні брати Євграфа. У 1887 р. Василь уже штатний псаломщик. Хрещена Михайла в 1884 р. — Агриппина Семенівна, дружина псаломщика Дмитра Архангельського з Богородицького повіту; за по батькові вона могла бути сестрою Василя.",
+    rel: "Прямі записи.", links: [[FS + "3:1:3QS7-996D-8X5C", "1882"], [FS + "3:1:3QS7-996D-NS37", "1884"], [FS + "3:1:3QS7-L96D-CGHB", "1887"]], who: ["vasyl", "iroida", "semenO"] },
+  { id: "A-0044", cat: "mk", t: "Народження Марії Георгієвської, Соборна Троїцька церква Богородицька, 1865",
+    date: "1.06.1865 (ст. ст.; покажчик FamilySearch помилково дає 1864)", ref: "FamilySearch DGS 7559529, № 24 жін.",
+    place: "г. Богородицк, Соборная Троицкая церковь",
+    verb: "Марія; Богородицкій мѣщанинъ Пименъ Димитріевъ Георгіевскій и законная жена его Анна Стефанова, оба православные. Восприемники: Богородицкій купеческій сынъ Николай Стефановъ Долговъ и дѣвица послушница Бѣлевскаго Женскаго Монастыря Марія",
+    sum: "Народження прапрапрабабусі. Її батько був міщанином, не священником, хоч прізвище й звучить по-церковному. Хрещений — рідний дядько, брат матері.",
+    rel: "Прямий запис, перевірений скептиком.", links: [[FS + "3:1:3QS7-996S-9FHV", "скан"], [FS + "1:1:6TBL-1HQJ", "індекс"]], who: ["mariaK", "pymon", "annaD"] },
+  { id: "A-0045", cat: "mk", t: "Шлюб Пимона Георгієвського й Анни Долгової, Богородицьк, 1853",
+    date: "15.02.1853", ref: "FamilySearch DGS 7558565 (скан вицвілий)",
+    place: "г. Богородицк",
+    verb: "Богородицкій мѣщанинъ Пименъ Димитріевъ Георгіевскій, первымъ бракомъ, 21; дѣвица Анна Стефанова, дочь Богородицкаго [купеческаго сына?] Стефана Иванова Долгова, 20",
+    sum: "Найдавніший знайдений шлюб у родоводі. Через Анну Долгову родина пов'язана з купцями Долговими, які потім хрестили дітей у трьох поколіннях. У Пимона й Анни за покажчиком 8 дітей, 1853–1874. Пимон помер 8.09.1900 у 70 років (покажчик; скан смерті не прочитано).",
+    rel: "Прямий запис, перевірений скептиком. Стан батька нареченої читається частково.", links: [[FS + "3:1:3QS7-L96M-VSX8", "скан"], [FS + "1:1:6TBZ-5LHS", "індекс"], [FS + "1:1:XS2F-T2B1", "смерть Пимона 1900"]], who: ["pymon", "annaD", "stefanD", "dmytroG"] },
+  { id: "A-0046", cat: "mk", t: "Метрики 9 дітей Платона Краснопевцева, 1884–1903 (звірено зі сканами)",
+    date: "1884–1903", ref: "ГАТО ф. 93; 9 різних DGS (див. посилання)", place: "Ефремов",
+    verb: "Крапивенскій мѣщанинъ Платонъ Димитріевъ Краснопевцевъ и законная жена его Марія Пименова. 1903: «Священникъ Петръ Рудневъ съ и. д. псаломщика Орловымъ»",
+    sum: "Скептики підтвердили всі записи. Хрещені майже завжди — Долгови: Іван Степанович, його дружина Юлія Павлівна, син Олександр Іванович, донька Марія, а також Анна Герасимівна. Сергія в 1886 р. хрестила повитуха, бо дитина була в небезпеці. Найстарша, Віра, померла 1885 р. Запис про Бориса 1903 р. підписав Євграф Орлов.",
+    rel: "Прямі записи.", links: [[FS + "3:1:3QS7-9966-CPYC", "Віра 1884"], [FS + "3:1:3QS7-996D-6F79", "Сергій 1886"], [FS + "3:1:3QS7-L96D-NHMZ", "Лідія 1890"], [FS + "3:1:3QSQ-G96D-6359", "Олексій 1892"], [FS + "3:1:3QS7-996D-VH6G", "Микола 1893"], [FS + "3:1:3QS7-996D-NDM2", "Глафіра 1896"], [FS + "3:1:3QS7-896D-D6L3", "Лариса 1898"], [FS + "3:1:3QS7-896D-DSQV", "Платон 1901"], [FS + "3:1:3QSQ-G96D-DWJY", "Борис 1903"]],
+    who: ["platon", "mariaK", "oleksandra", "evgraf"] },
+  { id: "A-0047", cat: "mk", t: "Метрична книга Успенської церкви Томашполя, 1890 (прочитано повністю)",
+    date: "1890", ref: "ДАХмО ф. 315 оп. 1 спр. 12478; FamilySearch, група 119743731 (71 кадр)", place: "м. Томашполь; с. Ракова",
+    verb: "Села Раковой Крестьяне: Филиппъ Игнатіевъ Штельмащукъ и Марія Исидорова жена Михаила Петрова Колесника (хрещені). Поручитель: Солдатъ Аѳанасій Мироновъ Бойко. Мѣстечка Томашполя Крестьянина Никифора Миронова Бойка сынъ Авксентій, 14 л. († 10.09.1890)",
+    sum: "Єдиний Колесник у книзі — Михайло Петрович з Ракової (через дружину-хрещену). Він за віком міг бути батьком, дядьком чи братом Харлампія, але зв'язку не видно. Сини Мирона Бойка Афанасій і Никифор доповнюють родину Павла Мироновича. Єдина Палагнючка — 75-річна вдова Юліанія.",
+    rel: "Записи перевірені скептиками; родинного зв'язку не встановлено.", links: [["https://www.familysearch.org/search/film/119743731", "книга"], [FS + "3:1:3QHV-V7DS-S9NX-2", "Колесник"], [FS + "3:1:3QHJ-B7D9-DZDJ-Z", "Афанасій Бойко"]], who: ["kharlampii", "pavlo", "semen"] },
+  { id: "A-0049", cat: "mk", t: "Метричні книги Троїцької церкви Томашполя, 1876 і 1877",
+    date: "1876–1877", ref: "ДАХмО ф. 315 оп. 1 спр. 12093 (1877); FamilySearch групи 119478977, 119479379", place: "м. Томашполь; с. Ракова",
+    verb: "Мѣстечка Томашполя крестьянинъ Симеонъ Артемьевъ Колесникъ и законная его жена Евфросинія Іоаннова (дочь Дарія, 1876); Села Раковой крестьянинъ Симеонъ Леонтіевъ Палагнюкъ († 25.11.1877); Акимъ Мироновъ Бойко (поручитель, 1877)",
+    sum: "Харлампія Колесника немає ні серед народжених, ні серед інших учасників. Найближчі Колесники — родина Семена Артемовича. Семен Леонтійович Палагнюк з Ракової помер 1877 р., тож батьком Марії Семенівни він бути не міг.",
+    rel: "Записи перевірені скептиками.", links: [[FS + "3:1:3QHK-F78R-2745", "Колесник 1876"], [FS + "3:1:3QHK-V78R-P4SV", "1877, смерті"], [FS + "3:1:3QHK-N78R-LK12", "Палагнюк 1877"]], who: ["kharlampii", "semen", "pavlo"] },
+  { id: "A-0050", cat: "mk", t: "Метричні книги Успенської церкви Томашполя, 1876 і 1877",
+    date: "1876–1877", ref: "ДАХмО ф. 315 оп. 1; FamilySearch групи 119479321, 119479363", place: "м. Томашполь",
+    verb: "Евфимій Назарьевъ Бойко; Назарій Іоанновъ Бойко; Андрей Карповъ Колесникъ (поручитель)",
+    sum: "Тут інша гілка Бойків — нащадки Назарія. Прямих предків не видно; Ракова в цій парафії трапляється лише серед хрещених.",
+    rel: "Контекст.", links: [["https://www.familysearch.org/search/film/119479321", "1876"], ["https://www.familysearch.org/search/film/119479363", "1877"]], who: ["kharlampii", "pavlo"] },
+  { id: "A-0051", cat: "mk", t: "Метричні книги с. Паланка, 1866, 1871, 1876: Фертюків немає",
+    date: "1866; 1871; 1876", ref: "ДАХмО ф. 315 оп. 1 спр. 8383, 11925; FamilySearch групи 115459559, 119645444", place: "с. Паланка",
+    sum: "Кислицьке іноді приписували до церкви в Паланці, тому ці книги перевірили. Мешканців Кислицького й Фертюків там немає. Власні книги Кислицького за 1898–1913 рр. є тільки у Вінницькому архіві.",
+    rel: "Негативний результат для цих років.", links: [["https://www.familysearch.org/search/film/115459559", "1856–1871"], ["https://www.familysearch.org/search/film/119645444", "1876"]], who: ["ivanF", "anton"] },
+  { id: "A-0028", cat: "mk", t: "Метрична книга Троїцької церкви Томашполя, 1890 (парафія с. Ракової)",
+    date: "1890", ref: "ДАХмО ф. 315 оп. 1 спр. 12481; FamilySearch, група зображень 119743737 (40 кадрів)", place: "Села Раковой; м. Томашполь",
+    verb: "Павелъ Мироновъ Бойко и Ирина Александрова (с. Ракова); Сауляки",
+    sum: "Книга підтверджує, що Ракова належала до парафії Троїцької церкви Томашполя. У раунді 4 всі 40 кадрів перечитано в усіх колонках, включно з хрещеними й поручителями: Колісників немає ніде. Є родини Мирона Бойка (Павло, Іван), численні Палагнюки й Сауляки Ракової.",
+    rel: "Негативний результат стосується лише 1890 року.", links: [["https://www.familysearch.org/en/records/images/search-results?imageGroupNumbers=119743737", "скани"]], who: ["kharlampii", "pavlo", "rodion"] },
+  { id: "A-0040", cat: "mk", t: "Метрична книга Різдво-Богородичної церкви Рожнятівки, 1861–1885: тільки смерті",
+    date: "прочитано 1881–1885", ref: "ДАХмО ф. 315 оп. 1 спр. 8553; FamilySearch DGS 115459864 (280 кадрів)", place: "Села Рожнятовки",
+    verb: "Демчуки: Иоаким Григорьев (солдат), Андрей Осипов, Авксентий Игнатов; Бойко Мирон Андреев (†1881)",
+    sum: "У справі є лише частина «о умерших», без народжень і шлюбів. За 1881–1885 рр. Демчуки й Бойки в Рожнятівці є, а Сауляків серед померлих немає. Андрій Осипович Демчук — слабкий кандидат у діди Петра Андрійовича (A-0010).",
+    rel: "Контекст.", links: [[FS + "3:1:3QHN-LQ1J-KT9K", "скан"]], who: ["petroD", "ivanD"] },
+
+  // Військові
+  { id: "A-0005", cat: "war", t: "Колесник Иван Харламович, 1908, с. Ракова — список безповоротних втрат, 1946",
+    date: "липень 1946", ref: "ЦАМО, донесення 57230994, стор. 3 з 35, рядок 9 (Память народа)", place: "Винницкой обл. Томашпольский р-н с. Ракова",
+    verb: "Колесник Иван Харламович",
+    sum: "Червоноармієць, безпартійний, 1908 р. н., с. Ракова. Призваний Сочинським РВК Краснодарського краю в 1941 р., помер від ран 17.02.1942. Дружина: Колесник … Василина (ім'я частково нерозбірливе). Можливий брат Олексія Харлампійовича.",
+    rel: "Прямий запис про солдата. Про його батька каже лише по батькові.", links: [["https://pamyat-naroda.ru/heroes/memorial-chelovek_dopolnitelnoe_donesenie57230994/", "Память народа"]], who: ["kharlampii", "oleksii"] },
+  { id: "A-0006", cat: "war", t: "Колесник Иван Харлампович, 1903, с. Ракова — картка «Память народа»",
+    date: "1944", place: "Винницкая обл., Томашпольский р-н, с. Ракова", verb: "Колесник Иван Харлампович",
+    sum: "1903 р. н., Сочинський ГВК, зник безвісти в червні 1944 р. Військкомат той самий, що в A-0005, тож це, ймовірно, та сама людина, але з іншим роком народження й іншою долею.",
+    rel: "Покажчик, скан не відкривався.", links: [["https://pamyat-naroda.ru/heroes/?last_name=%D0%9A%D0%BE%D0%BB%D0%B5%D1%81%D0%BD%D0%B8%D0%BA&middle_name=%D0%A5%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%BF%D0%BE%D0%B2%D0%B8%D1%87", "Память народа"]], who: ["kharlampii"] },
+  { id: "A-0009", cat: "war", t: "Колесник Иван Харлампович, 1903 — ОБД «Мемориал»",
+    date: "1944–1946", ref: "ЦАМО ф. 58 оп. 18004 спр. 451", place: "Винницкая обл., Томашпольский р-н, с. Ракова",
+    verb: "Колесник Иван Харлампович; жена Колесник Вера Васильевна, м. Томашполь",
+    sum: "Друга копія втрат: зник безвісти в червні 1944 р. Дружина Віра Василівна жила в Томашполі (за переказами — на вул. Володарського). Суперечить A-0005 у році народження й долі.",
+    rel: "Прямий запис, перевірений скептиком.", links: [["https://obd-memorial.ru/html/info.htm?id=58228172", "ОБД Мемориал"]], who: ["kharlampii"] },
+  { id: "A-0007", cat: "war", t: "Колесник Степан Харлампевич, 1909 — картотека поранених",
+    date: "1944–1945", ref: "ЦАМО, картотека поранених", place: "Томашпольский РВК, Винницкая обл.",
+    verb: "Колесник Степан Харлампевич (Харлампиевич)",
+    sum: "1909 р. н., призваний Томашпільським РВК у 1944 р., 110-та дивізія; вибув зі шпиталю 25.07.1945, тобто вижив. Можливий брат Олексія.",
+    rel: "Покажчик.", links: [["https://pamyat-naroda.ru/heroes/?last_name=%D0%9A%D0%BE%D0%BB%D0%B5%D1%81%D0%BD%D0%B8%D0%BA&middle_name=%D0%A5%D0%B0%D1%80%D0%BB%D0%B0%D0%BC%D0%BF%D0%BE%D0%B2%D0%B8%D1%87", "Память народа"]], who: ["kharlampii"] },
+  { id: "A-0010", cat: "war", t: "Демчук Петр Андреевич, 1898, Рожнятівка — загинув у Румунії, 1944",
+    date: "9.06.1944", ref: "ЦАМО ф. 6788 оп. 273783с спр. 11 (рядок 209); ф. 58 оп. 18002 спр. 503",
+    place: "Винницкая обл. Томашпольский р-н с. Ромжатовка / Рожнатовка",
+    verb: "Демчук Петр Андреевич; жена Демчук Ксения Корнеевна [читання непевне]",
+    sum: "Призваний Томашпільським РВК у 1944 р., 278-й гвардійський стрілецький полк 93-ї гв. дивізії. Загинув 9 червня 1944 р., похований у Румунії (Ясський р-н, с. Ромэнешть). Два незалежні донесення, від полку й від дивізії. Можливий батько Івана Петровича.",
+    rel: "Прямий запис про солдата. Зв'язок з родиною не встановлено.", links: [["https://obd-memorial.ru/html/info.htm?id=1151598857", "донесення 1"], ["https://obd-memorial.ru/html/info.htm?id=3940642", "донесення 2"]], who: ["petroD", "ivanD"] },
+  { id: "A-0029", cat: "war", t: "Демчук Ефим Петрович, 1909, Рожнятівка — нагородні документи",
+    date: "1944–1985", ref: "ЦАМО ф. 33 оп. 686196 спр. 1234; ювілейна картотека 1985", place: "с. Рожнятовка",
+    verb: "Демчук Ефим Петрович",
+    sum: "Призваний Томашпільським РВК у квітні 1944 р., 285-й гв. стрілецький полк, медаль «За відвагу». Живий у 1985 р. Можливий брат Івана Петровича.",
+    rel: "Покажчик.", links: [["https://pamyat-naroda.ru/heroes/podvig-chelovek_yubileinaya_kartoteka1520246690/", "картотека 1985"], ["https://pamyat-naroda.ru/heroes/podvig-chelovek_nagrazhdenie23598977/", "нагородження"]], who: ["ivanD", "petroD"] },
+  { id: "A-0030", cat: "war", t: "Палагнюк Петр Семенович, 1921, Томашпілка — моряк",
+    date: "1940–1985", ref: "ЦАМО, картотека моряків; ювілейна картотека", place: "Томашпольский р-н с. Томашпилька",
+    verb: "Палагнюк Петр Семенович, 10.07.1921",
+    sum: "Призваний 1940 р., служив моряком, живий у 1985 р. Можливий брат Марії Семенівни Бойко.",
+    rel: "Покажчик.", links: [["https://pamyat-naroda.ru/heroes/person-hero38272483/", "Память народа"]], who: ["mariaB", "semen"] },
+  { id: "A-0011", cat: "war", t: "Фертюк Евсей Иванович, 1913, Кислицьке — анкета розшуку, 1946",
+    date: "1946", ref: "ЦАМО ф. 58 оп. 977522 спр. 129", place: "с. Кислицкое Томашпольского р-на",
+    verb: "Фертюк Евсей Иванович; разыскивает жена Фертюк Екатерина Ф[омовна?], с. Кислицкое",
+    sum: "Призваний Томашпільським РВК у червні 1941 р., польова пошта 74043, зник безвісти у квітні 1945 р. Анкету розшуку заповнила дружина Катерина. Можливий брат Антона: те саме село й по батькові.",
+    rel: "Прямий запис, перевірений скептиком.", links: [["https://obd-memorial.ru/html/info.htm?id=69139983", "ОБД Мемориал"]], who: ["anton", "ivanF"] },
+  { id: "A-0008", cat: "war", t: "Фертюк Дорофей Павлович, 1911, Кислицьке",
+    date: "1941–1945", place: "Винницкая обл., Томашпольский р-н, с. Кислицкое", verb: "Фертюк Дорофей Павлович",
+    sum: "Сержант, 57-й танковий полк 15-ї гв. кавалерійської дивізії, призваний Ярунським РВК Житомирської обл. Підтверджує, що рід Фертюків жив у Кислицькому. По батькові Павлович, тож він не брат Антона, але може бути двоюрідним.",
+    rel: "Покажчик.", links: [["https://pamyat-naroda.ru/heroes/?last_name=%D0%A4%D0%B5%D1%80%D1%82%D1%8E%D0%BA", "Память народа"]], who: ["anton", "ivanF"] },
+  { id: "A-0012", cat: "war", t: "Орлов Владимир Евграфович, 1906, Єфремов — зник безвісти, 1942",
+    date: "1941–1946", ref: "ЦАМО ф. 58 оп. 977520 спр. 910, рядок 27", place: "Тульская обл. г. Ефремов",
+    verb: "Орлов Владимир Евграфович; дочь Орлова Галина Владимировна (Курганская обл.)",
+    sum: "Призваний Єфремівським РВК у червні 1941 р., зник безвісти в березні 1942 р. Розшукувала його донька Галина. Збігається з метрикою брата Валентини 1906 р. (A-0026), тож Галина — двоюрідна сестра Віри Антонівни.",
+    rel: "Прямий запис про солдата.", links: [["https://obd-memorial.ru/html/info.htm?id=64447679", "ОБД Мемориал"]], who: ["valentyna", "evgraf"] },
+  { id: "A-0004", cat: "war", t: "Картки Першої світової (GWAR), Подільська губернія",
+    date: "1914–1917", ref: "РГВИА: картотека бюро обліку втрат, іменні списки (через gwar.mil.ru)",
+    place: "Ямпільський уезд: Рожнятовская, Томашпольская, Комаргородская вол.",
+    sum: "Картки підтверджують, що в Ямпільському повіті були Рожнятівська й Томашпільська волості, а Кислицьке належало до Комаргородської. Колесники, Бойки, Демчуки, Сауляки й Палагнюки трапляються в цих волостях. Фертюки є лише в Проскурівському повіті. Родинного зв'язку з жодною карткою не встановлено.",
+    rel: "Однофамільці й географія.", links: [["https://gwar.mil.ru", "gwar.mil.ru"]], who: ["kharlampii", "pavlo", "petroD", "rodion", "semen"] },
+
+  // Каталоги
+  { id: "A-0002", cat: "cat", t: "Зведений каталог метричних книг ДАХмО, т. 8 (2013)",
+    ref: "ДАХмО ф. 315 «Подільська духовна консисторія»", place: "Рожнятівка, Кислицьке, Томашпіль — Ямпільський пов.",
+    sum: "Які книги збереглися в Хмельницькому архіві: Рожнятівка, Різдво-Богородична церква — 1796–1885; Кислицьке, Параскевинська церква — 1796–1865, окремі роки приписане до Миколаївської церкви с. Паланка; Томашпіль, Троїцька й Успенська церкви — до 1890/1906.",
+    rel: "Офіційний довідник, надійний для навігації.", links: [["https://dahmo.gov.ua/pdf/mbv8-b1.pdf", "PDF"]], who: [] },
+  { id: "A-0003", cat: "cat", t: "Duck Inspector: архівні справи за місцем",
+    ref: "ДАВіО 904-39-7; ДАВіО 186-1-2; ДАХмО 315-1-8553 та ін.",
+    sum: "ДАВіО ф. 904 оп. 39 спр. 7 — метрична книга Хрестовоздвиженської церкви с. Кислицьке за 1898, 1906–08, 1910, 1912–13 рр., не оцифрована. ДАВіО ф. 186 оп. 1 спр. 2 — посімейний список Томашпільської волості 1908 р., онлайн. ДАХмО ф. 315 — метричні книги до 1885/1890 рр., онлайн.",
+    rel: "Агрегатор описів. Видача обрізається приблизно на 50 справах.", links: [["https://inspector.duckarchive.com", "Duck Inspector"]], who: [] },
+  { id: "A-0015", cat: "cat", t: "Справи Вінницького архіву (ДАВіО) за 1890–1928 рр.",
+    ref: "ф. 904 оп. 39 спр. 7, 10; ф. Р-6129 оп. 19; ф. 774 оп. 1; ф. 186 оп. 1",
+    sum: "Метричних книг Кислицького 1901–02 рр., Рожнятівки 1886–1920 рр. і Томашполя 1891–1920 рр. у каталогах немає. Зате є: книги РАЦС Рожнятівки 1922–28 рр., шлюби Рожнятівки 1921–22 рр., Кислицьке 1898–1913 рр., призовні списки волостей. На цьому побудовано запит до архіву.",
+    rel: "Каталог.", links: [["https://uk.wikisource.org/wiki/%D0%90%D1%80%D1%85%D1%96%D0%B2:%D0%94%D0%90%D0%92%D1%96%D0%9E/%D0%A0-6129/19", "Вікіджерела: Р-6129/19"]], who: ["ivanD", "mariaD", "anton"] },
+  { id: "A-0016", cat: "cat", t: "Посімейний список Томашпільської волості, 1908 (ДАВіО 186-1-2)",
+    date: "1908", ref: "ДАВіО ф. 186 оп. 1 спр. 2", place: "Томашпольская волость",
+    sum: "У списку лише близько 157 «причислених» родин, переважно шляхетських. Колесників, Бойків, Палагнюків, Сауляків, Демчуків і Фертюків в алфавітному покажчику немає.",
+    rel: "Негативний результат лише для цієї справи.", links: [["https://commons.wikimedia.org/wiki/File:%D0%94%D0%90%D0%92%D1%96%D0%9E_186-1-2._1908._%D0%9F%D0%BE%D1%81%D1%96%D0%BC%D0%B5%D0%B9%D0%BD%D0%B8%D0%B9_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%81%D0%B5%D0%BB%D1%8F%D0%BD,_%D0%BF%D1%80%D0%B8%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%85_%D0%B4%D0%BE_%D1%82%D0%BE%D0%BC%D0%B0%D1%88%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%BE%D1%97_%D0%B2%D0%BE%D0%BB%D0%BE%D1%81%D1%82%D1%96.pdf", "скан на Commons"]], who: ["kharlampii", "pavlo"] },
+  { id: "A-0013", cat: "cat", t: "Радгосп «Красный свиновод», Чамзинський район Мордовії",
+    date: "1930–1968", ref: "Муніципальний архів Чамзинського р-ну, ф. Р-66", place: "с. Апраксино Чамзинского района Мордовской АССР",
+    sum: "Свинарський радгосп «Красный свиновод» існував у 1930–1968 рр. біля села Апраксино. Це майже напевно той «Красный Свинопас», про який пам'ятала родина. Документи фонду збереглися лише за 1976–2002 рр.",
+    rel: "Довідник. Ототожнення назви — висновок.", links: [["https://notarc.org/ru/220535", "notarc.org"]], who: ["vira", "anton", "valentyna"] },
+  { id: "A-0014", cat: "cat", t: "Покажчик метричної книги Єфремова 1907 р. (nashipredki)",
+    ref: "ГАТО ф. 93 оп. 2 спр. 681 (FamilySearch 2008719 / DGS 7563367; 2008720 / DGS 7563366)",
+    sum: "Покажчик, за яким знайдено книгу із записом про народження Валентини.", rel: "Покажчик.",
+    links: [["https://nashipredki.com/archive/gato-tula/fond-93/opis-2/delo-681", "nashipredki"]], who: ["valentyna"] },
+
+  // Репресії
+  { id: "A-0031", cat: "rep", t: "«Реабілітовані історією», Вінницька область, кн. 1 і 4",
+    ref: "кн. 4, с. 252, 585; кн. 1, с. 167", place: "Томашпілка; Ракова",
+    sum: "Однофамільці з тих самих сіл: Палагнюк Михайло Маркович, 1907 (Томашпілка, засуджений 1944); Сауляк Степан Іларіонович, 1888 (Ракова, розстріляний 1938); Колісник Настя (Томашпільський р-н, 1934, справа про «колоски»). Прямих предків серед репресованих не виявлено.",
+    rel: "Контекст.", links: [["https://archive.org/download/reabilitovani/Vinnycka_oblast_k.4.pdf", "кн. 4"], ["https://archive.org/download/reabilitovani/Vinnycka_oblast_k.1.pdf", "кн. 1"]], who: ["semen", "rodion"] },
+  { id: "A-0032", cat: "rep", t: "Національна книга пам'яті жертв Голодомору, Вінницька область",
+    date: "1932–1933", ref: "с. 49, 918", place: "Рожнятівка; Кислицьке; Томашпілка",
+    sum: "19 листопада 1932 р. Рожнятівку занесли на «чорну дошку» (одноосібники), у Кислицькому люди виходили з колгоспу. Записів про предків немає, але так жили родини Демчуків, Сауляків і Фертюків у ці роки.",
+    rel: "Контекст.", links: [["https://holodomormuseum.org.ua/wp-content/uploads/2026/08/vinnicka_obl.pdf", "PDF"]], who: ["ivanD", "mariaD", "anton"] },
+];
+const DOCS_BY_PERSON = {};
+DOCS.forEach(d => (d.who || []).forEach(p => (DOCS_BY_PERSON[p] = DOCS_BY_PERSON[p] || []).push(d)));
+
+let uid = 0;
+const T = (id, f, m) => ({ id, parents: [f, m].filter(Boolean) });
+const U = (label) => { const id = "u" + (uid++); P[id] = { n: label || "дружина — ?", s: "", d: "", place: "", st: "unk",
+  info: "Ця людина поки невідома.", src: "—" }; return { id, parents: [] }; };
+
+const tree =
+  T("me",
+    T("ivan",
+      T("mykhailo",
+        T("oleksii", T("kharlampii"), U()),
+        T("ksenia", T("trifon"), U())),
+      T("anastasia",
+        T("trokhym", T("pavlo"), U()),
+        T("mariaB", T("semen"), U()))),
+    T("antonina",
+      T("petro",
+        T("ivanD", T("petroD"), U("мати — ?")),
+        T("mariaD", T("rodion"), U())),
+      T("vira",
+        T("anton", T("ivanF"), U()),
+        T("valentyna",
+          T("evgraf", T("vasyl", T("semenO")), T("iroida")),
+          T("oleksandra", T("platon", T("dmytro")), T("mariaK", T("pymon", T("dmytroG")), T("annaD", T("stefanD"))))))));
+
+// Layout
+const W = 256, H = 90, GX = 64, ROW = 102, PADX = 28, TOP = 54;
+let row = 0, maxG = 0;
+const nodes = [];
+(function lay(n, g, child) {
+  n.g = g; n.child = child; maxG = Math.max(maxG, g);
+  n.x = PADX + g * (W + GX);
+  n.parents.forEach(p => lay(p, g + 1, n));
+  if (!n.parents.length) { n.y = TOP + row * ROW + H / 2; row++; }
+  else n.y = (n.parents[0].y + n.parents[n.parents.length - 1].y) / 2;
+  nodes.push(n);
+})(tree, 0, null);
+
+const width = PADX * 2 + (maxG + 1) * W + maxG * GX;
+const height = TOP + row * ROW - (ROW - H) + 18;
+const canvas = document.getElementById("canvas");
+canvas.style.width = width + "px";
+canvas.style.height = height + "px";
+
+const GEN = ["Ви", "Батьки", "Дідусі й бабусі", "Прадіди", "Прапрадіди", "Прапрапрадіди", "Прапрапрапрадіди", "5× «пра»"];
+GEN.slice(0, maxG + 1).forEach((t, g) => {
+  const el = document.createElement("div");
+  el.className = "gen"; el.textContent = t; el.style.left = (PADX + g * (W + GX)) + "px";
+  canvas.appendChild(el);
+});
+
+const svgNS = "http://www.w3.org/2000/svg";
+const svg = document.createElementNS(svgNS, "svg");
+svg.setAttribute("width", width); svg.setAttribute("height", height);
+svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+canvas.appendChild(svg);
+const edges = {};
+nodes.forEach(n => n.parents.forEach(p => {
+  const mx = n.x + W + GX / 2;
+  const path = document.createElementNS(svgNS, "path");
+  path.setAttribute("d", `M${n.x + W} ${n.y} H${mx} V${p.y} H${p.x}`);
+  svg.appendChild(path);
+  edges[p.id] = path;
+}));
+
+const btns = {};
+nodes.forEach(n => {
+  const d = P[n.id], st = ST[d.st];
+  const b = document.createElement("button");
+  b.className = "p"; b.type = "button"; b.dataset.s = d.st; b.id = "p-" + n.id;
+  const h = d.st === "unk" ? 48 : H;
+  b.style.cssText = `left:${n.x}px;top:${n.y - h / 2}px;width:${W}px;height:${h}px;--c:var(${st.c});--b:var(${st.b})`;
+  const sur = d.s ? d.s + (d.m ? `, дів. ${d.m}` : "") : "";
+  b.innerHTML = `<span class="n"></span>${sur ? '<span class="s"></span>' : ""}${d.d ? '<span class="d"></span>' : ""}`;
+  b.querySelector(".n").textContent = d.n;
+  if (sur) b.querySelector(".s").textContent = sur;
+  if (d.d) b.querySelector(".d").textContent = d.d;
+  b.addEventListener("click", () => { if (!dragged) select(n); });
+  b.addEventListener("mouseenter", () => { if (!pinned && !touch) show(n, false); });
+  b.addEventListener("mouseleave", () => { if (!pinned && !touch) hideSoon(); });
+  b.addEventListener("focus", () => { if (!pinned) show(n, false); });
+  b.addEventListener("blur", () => { if (!pinned) hideSoon(); });
+  canvas.appendChild(b);
+  btns[n.id] = b;
+});
+
+const card = document.getElementById("card");
+const pane = document.getElementById("pane"), stage = document.getElementById("stage"), treewrap = document.getElementById("treewrap");
+const touch = matchMedia("(hover: none)").matches;
+let pinned = null, current = null, hideT = null, dragged = false;
+function render(n, pin) {
+  current = n;
+  Object.values(btns).forEach(b => b.classList.remove("sel"));
+  Object.values(edges).forEach(e => e.classList.remove("on"));
+  btns[n.id].classList.add("sel");
+  for (let c = n; c && c.child; c = c.child) edges[c.id] && edges[c.id].classList.add("on");
+  const d = P[n.id], st = ST[d.st];
+  card.style.setProperty("--c", `var(${st.c})`); card.style.setProperty("--b", `var(${st.b})`);
+  card.innerHTML = "";
+  const add = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; e.textContent = text; card.appendChild(e); return e; };
+  const head = document.createElement("div"); head.className = "tiphead";
+  const eb = document.createElement("div"); eb.className = "eyebrow"; eb.textContent = GEN[n.g] || ""; head.appendChild(eb);
+  if (pin) {
+    const x = document.createElement("button"); x.type = "button"; x.className = "x";
+    x.setAttribute("aria-label", "Закрити"); x.textContent = "×"; x.addEventListener("click", hide);
+    head.appendChild(x);
+  }
+  card.appendChild(head);
+  add("div", "who", d.n + (d.s && d.st !== "unk" ? " " + d.s : ""));
+  if (d.m) add("div", "maiden", "дівоче прізвище: " + d.m);
+  add("span", "chip", st.label);
+  const dl = document.createElement("dl"); dl.className = "kv";
+  [["Дати", d.d], ["Місце", d.place]].forEach(([k, v]) => { if (!v) return;
+    const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); dd.textContent = v; dl.append(dt, dd); });
+  if (dl.children.length) card.appendChild(dl);
+  add("p", "", d.info);
+  const mine = DOCS_BY_PERSON[n.id] || [];
+  if (mine.length) {
+    add("h3", "", "Документи (" + mine.length + ")");
+    const box = document.createElement("div"); box.className = "dlinks";
+    mine.forEach(doc => {
+      const b = document.createElement("button"); b.type = "button";
+      const id = document.createElement("span"); id.className = "mono"; id.textContent = doc.id + " · ";
+      b.append(id, document.createTextNode(doc.t));
+      b.addEventListener("click", () => {
+        hide();
+        if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+        setTimeout(() => showDoc(doc.id), 60);
+      });
+      box.appendChild(b);
+    });
+    card.appendChild(box);
+    if (!pin && !touch) add("div", "more", "Клікніть на людину, щоб закріпити картку й відкрити документи.");
+  } else {
+    add("div", "src", "Джерела: " + d.src);
+  }
+}
+
+// Hover card: follows the hovered person, pins on click
+function place(n) {
+  if (touch) { card.style.left = ""; card.style.top = ""; return; }
+  const r = btns[n.id].getBoundingClientRect();
+  const tw = card.offsetWidth, th = card.offsetHeight, vw = innerWidth, vh = innerHeight, m = 12;
+  let x = r.right + m;
+  if (x + tw > vw - m) x = r.left - tw - m;
+  if (x < m) x = Math.max(m, Math.min(vw - tw - m, r.left));
+  let y = r.top + r.height / 2 - th / 2;
+  y = Math.max(m, Math.min(vh - th - m, y));
+  card.style.left = x + "px"; card.style.top = y + "px";
+}
+function show(n, pin) {
+  clearTimeout(hideT);
+  render(n, pin);
+  card.hidden = false;
+  place(n);
+}
+function hideSoon() { clearTimeout(hideT); hideT = setTimeout(hide, 220); }
+function hide() {
+  clearTimeout(hideT);
+  card.hidden = true; pinned = null; current = null;
+  Object.values(btns).forEach(b => b.classList.remove("sel"));
+  Object.values(edges).forEach(e => e.classList.remove("on"));
+}
+function select(n) { pinned = n; show(n, true); }
+card.addEventListener("mouseenter", () => clearTimeout(hideT));
+card.addEventListener("mouseleave", () => { if (!pinned && !touch) hideSoon(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !card.hidden) hide(); });
+pane.addEventListener("scroll", () => { if (!card.hidden && current) place(current); }, { passive: true });
+addEventListener("resize", () => { if (!card.hidden && current) place(current); });
+
+// Zoom
+const zval = document.getElementById("zval");
+let scale = 1;
+function setScale(s, cx, cy) {
+  const old = scale;
+  scale = Math.min(1.8, Math.max(0.3, s));
+  if (cx == null) { cx = pane.clientWidth / 2; cy = pane.clientHeight / 2; }
+  const px = (pane.scrollLeft + cx) / old, py = (pane.scrollTop + cy) / old;
+  canvas.style.transform = `scale(${scale})`;
+  stage.style.width = width * scale + "px"; stage.style.height = height * scale + "px";
+  pane.scrollLeft = px * scale - cx; pane.scrollTop = py * scale - cy;
+  zval.textContent = Math.round(scale * 100) + "%";
+  if (!card.hidden && current) place(current);
+}
+const fitScale = () => Math.min(pane.clientWidth / width, pane.clientHeight / height);
+document.getElementById("zin").addEventListener("click", () => setScale(scale * 1.2));
+document.getElementById("zout").addEventListener("click", () => setScale(scale / 1.2));
+document.getElementById("zfit").addEventListener("click", () => { setScale(fitScale()); pane.scrollLeft = 0; pane.scrollTop = 0; });
+pane.addEventListener("wheel", e => {
+  if (!e.ctrlKey && !e.metaKey) return;
+  e.preventDefault();
+  const r = pane.getBoundingClientRect();
+  setScale(scale * Math.exp(-e.deltaY * 0.0022), e.clientX - r.left, e.clientY - r.top);
+}, { passive: false });
+setScale(1);
+function centerOn(n) {
+  pane.scrollLeft = (n.x + W / 2) * scale - pane.clientWidth / 2;
+  pane.scrollTop = n.y * scale - pane.clientHeight / 2;
+}
+centerOn(nodes.find(n => n.id === "valentyna"));
+pane.scrollLeft = 0;
+
+// Drag to pan (mouse); touch uses native scrolling
+let drag = null;
+pane.addEventListener("pointerdown", e => {
+  dragged = false;
+  if (e.pointerType !== "mouse" || e.button !== 0) return;
+  drag = { x: e.clientX, y: e.clientY, l: pane.scrollLeft, t: pane.scrollTop, id: e.pointerId };
+});
+pane.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  if (!dragged && Math.hypot(dx, dy) > 5) { dragged = true; pane.classList.add("drag"); pane.setPointerCapture(drag.id); }
+  if (dragged) { pane.scrollLeft = drag.l - dx; pane.scrollTop = drag.t - dy; }
+});
+const endDrag = e => {
+  if (drag && !dragged && pinned && !e.target.closest(".p")) hide();
+  drag = null; pane.classList.remove("drag");
+};
+pane.addEventListener("pointerup", endDrag);
+pane.addEventListener("pointercancel", endDrag);
+
+// Fullscreen
+const zfull = document.getElementById("zfull");
+if (!document.fullscreenEnabled) zfull.hidden = true;
+zfull.addEventListener("click", () => {
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  else treewrap.requestFullscreen().catch(() => { zfull.hidden = true; });
+});
+document.addEventListener("fullscreenchange", () => {
+  zfull.textContent = document.fullscreenElement ? "Вийти з повного екрана" : "На весь екран";
+  if (!card.hidden && current) place(current);
+});
+if (touch) document.getElementById("hint").textContent = "Торкніться людини, щоб побачити подробиці. Дерево гортається пальцем, масштаб змінюється кнопками.";
+
+// Facts + legend
+const real = nodes.filter(n => P[n.id].st !== "unk");
+const count = s => real.filter(n => P[n.id].st === s).length;
+document.getElementById("facts").innerHTML =
+  `<span><b>${real.length}</b> осіб на дереві</span>` +
+  `<span><b>${count("doc2") + count("doc1")}</b> підтверджені документами</span>` +
+  `<span><b>${count("patr")}</b> відомі лише на ім'я</span>` +
+  `<span>Найдавніший документальний шлюб: Пимон Георгієвський і Анна Долгова, <b>1853</b></span>`;
+const lg = document.getElementById("legend");
+["doc2", "doc1", "oral", "patr", "hyp", "unk"].forEach(k => {
+  const s = document.createElement("span"); const st = ST[k];
+  const sw = document.createElement("i"); sw.className = "sw";
+  sw.style.borderColor = `var(${st.c})`; sw.style.background = `var(${st.b})`;
+  if (k === "patr" || k === "hyp") sw.style.borderStyle = "dashed";
+  if (k === "unk") sw.style.borderStyle = "dotted";
+  s.append(sw, document.createTextNode(st.label)); lg.appendChild(s);
+});
+
+// Collateral relatives
+const G = [
+  { t: "Колісники", items: [
+    ["Іван Харлампович Колісник", "1903 або 1908, Ракова; загинув 1942 або зник безвісти 1944; дружина Віра Василівна", "hyp", "можливий брат Олексія"],
+    ["Степан Харлампійович Колісник", "1909, Томашпільський р-н, червоноармієць", "hyp", "можливий брат Олексія"],
+  ]},
+  { t: "Бойки та Палагнюки", items: [
+    ["Борис і Надія Бойко", "брат і сестра Анастасії, діти Марії Палагнюк", "oral", "живі, джерело спогадів"],
+    ["Петро Семенович Палагнюк", "1921, Томашпілка, моряк", "hyp", "можливий брат Марії Семенівни"],
+  ]},
+  { t: "Демчуки та Сауляки", items: [
+    ["Юхим Петрович Демчук", "1909, Рожнятівка, гвардії червоноармієць", "hyp", "можливий брат Івана Петровича"],
+    ["Петро Андрійович Демчук", "1898, Рожнятівка; загинув 1944 у Румунії", "hyp", "можливий батько Івана Петровича"],
+  ]},
+  { t: "Фертюки", items: [
+    ["Віктор Фертюк", "брат Віри Антонівни", "oral", "живий, джерело спогадів"],
+    ["Євсей Іванович Фертюк", "1913, Кислицьке; зник безвісти 1945; дружина Катерина", "hyp", "можливий брат Антона"],
+    ["Дорофей Павлович Фертюк", "1911, Кислицьке, сержант", "hyp", "ймовірно двоюрідний родич"],
+  ]},
+  { t: "Бойки та інші роди Ракової", items: [
+    ["Рід Мирона Бойка, с. Ракова", "сини Павло (1890: дружина Ирина, донька Фекла), Іван, Афанасій (солдат), Никифор, Аким; донька Параскева", "hyp", "можливо, прадід Павло звідси"],
+    ["Колесники в парафії, 1876–1890", "Михайло Петрович і Марія Ісидорівна (Ракова, 1890); Семен Артемович (1876–77); Андрій Карпович (1876)", "hyp", "серед них може бути батько Харлампія"],
+  ]},
+  { t: "Орлови: брати Євграфа", items: [
+    ["Григорій (1882), Михайло (1884), Василь (1887)", "рідні брати, с. Богородицьке", "doc2", "діти Василя й Іроїди"],
+    ["Павло, Іван, Олексій", "сини Василя від першого шлюбу, жили в Єфремові", "doc1", "зведені брати"],
+  ]},
+  { t: "Георгієвські й Долгови", items: [
+    ["Олексій Пимонович Георгієвський", "1874; свідок на весіллі Євграфа й Олександри 1904", "doc1", "дядько Олександри"],
+    ["Олександр (1862), Олександра (1868), Микола (1870)", "Богородицьк", "doc1", "брати й сестра Марії"],
+    ["Іван Степанович Долгов і Юлія Павлівна", "єфремівські купці, хрещені дітей Краснопевцевих", "doc1", "брат Анни Долгової"],
+  ]},
+  { t: "Орлови", items: [
+    ["Августа Євграфівна", "1904, Єфремов", "doc2", "сестра Валентини"],
+    ["Володимир Євграфович", "1906, Єфремов; зник безвісти 1942", "doc2", "брат Валентини"],
+    ["Ніна Євграфівна", "1909, Єфремов", "doc2", "сестра Валентини"],
+    ["Лідія Євграфівна", "1912, Єфремов", "doc2", "сестра Валентини"],
+  ]},
+  { t: "Краснопевцеви", items: [
+    ["Віра, Сергій, Лідія, Олексій, Микола, Глафіра, Лариса, Платон, Борис", "1884–1903, Єфремов", "doc1", "брати й сестри Олександри"],
+  ]},
+];
+const gw = document.getElementById("groups");
+G.forEach(g => {
+  const box = document.createElement("div"); box.className = "group";
+  const h = document.createElement("h3"); h.textContent = g.t; box.appendChild(h);
+  const ul = document.createElement("ul");
+  g.items.forEach(([name, det, st, rel]) => {
+    const li = document.createElement("li");
+    const tag = document.createElement("span"); tag.className = "tag"; tag.style.setProperty("--c", `var(${ST[st].c})`); tag.textContent = rel;
+    const nm = document.createElement("span"); nm.textContent = name;
+    const sm = document.createElement("small"); sm.textContent = det;
+    li.append(tag, nm, sm); ul.appendChild(li);
+  });
+  box.appendChild(ul); gw.appendChild(box);
+});
+
+// Documents
+const doclist = document.getElementById("doclist");
+const docEls = {}, catEls = {};
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+Object.entries(CATS).forEach(([k, label]) => {
+  const items = DOCS.filter(d => d.cat === k);
+  const wrapC = el("div", "doccat"); wrapC.dataset.cat = k;
+  wrapC.appendChild(el("h3", "", label + " · " + items.length));
+  items.forEach(d => {
+    const art = el("article", "doc"); art.id = "doc-" + d.id;
+    art.appendChild(el("div", "mono", d.id));
+    const body = el("div", "body");
+    body.appendChild(el("h4", "", d.t));
+    const dl = el("dl", "kv");
+    [["Дата", d.date], ["Шифр, джерело", d.ref], ["Місце в документі", d.place], ["Файл у справі", d.file]].forEach(([k2, v]) => {
+      if (!v) return; dl.append(el("dt", "", k2), el("dd", "", v));
+    });
+    if (dl.children.length) body.appendChild(dl);
+    if (d.verb) body.appendChild(el("p", "verb", d.verb));
+    body.appendChild(el("p", "", d.sum));
+    if (d.rel) body.appendChild(el("div", "rel", "Надійність: " + d.rel));
+    if (d.links && d.links.length) {
+      const ln = el("div", "links");
+      d.links.forEach(([u, l]) => { const a = el("a", "", l + " ↗"); a.href = u; a.target = "_blank"; a.rel = "noopener"; ln.appendChild(a); });
+      body.appendChild(ln);
+    }
+    const ppl = (d.who || []).filter(id => btns[id]);
+    if (ppl.length) {
+      const w = el("div", "who"); w.appendChild(el("span", "", "Про кого:"));
+      ppl.forEach(id => {
+        const b = el("button", "", P[id].n + (P[id].s && P[id].st !== "unk" ? " " + P[id].s : "")); b.type = "button";
+        b.addEventListener("click", () => showPerson(id)); w.appendChild(b);
+      });
+      body.appendChild(w);
+    }
+    art.appendChild(body); wrapC.appendChild(art); docEls[d.id] = art;
+  });
+  catEls[k] = wrapC; doclist.appendChild(wrapC);
+});
+const filters = document.getElementById("filters");
+const fbtns = [];
+[["all", "Усі · " + DOCS.length], ...Object.entries(CATS)].forEach(([k, label]) => {
+  const b = el("button", "", label); b.type = "button"; b.setAttribute("aria-pressed", k === "all" ? "true" : "false");
+  b.addEventListener("click", () => {
+    fbtns.forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    Object.entries(catEls).forEach(([ck, ce]) => { ce.hidden = !(k === "all" || k === ck); });
+  });
+  fbtns.push(b); filters.appendChild(b);
+});
+function showDoc(id) {
+  const e = docEls[id]; if (!e) return;
+  Object.values(catEls).forEach(ce => { ce.hidden = false; });
+  fbtns.forEach((x, i) => x.setAttribute("aria-pressed", i === 0 ? "true" : "false"));
+  e.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  e.classList.add("flash"); setTimeout(() => e.classList.remove("flash"), 1800);
+}
+function showPerson(id) {
+  const n = nodes.find(x => x.id === id); if (!n) return;
+  treewrap.scrollIntoView({ block: "start" });
+  centerOn(n);
+  requestAnimationFrame(() => select(n));
+}
+
+// Searches with no result, and archive files to order
+function fillGroups(elId, groups) {
+  const root = document.getElementById(elId);
+  groups.forEach(([title, items]) => {
+    const box = el("div", "group"); box.appendChild(el("h3", "", title));
+    const ul = el("ul");
+    items.forEach(([a, b]) => { const li = el("li"); li.append(el("span", "", a), el("small", "", b)); ul.appendChild(li); });
+    box.appendChild(ul); root.appendChild(box);
+  });
+}
+fillGroups("neg", [
+  ["Військові бази", [
+    ["Олексій Харлампійович Колесник", "Память народа, ОБД Мемориал: не знайдений. Можливо, не воював, вижив або запис не оцифрований."],
+    ["Антон Іванович Фертюк", "Память народа, ОБД Мемориал: не знайдений."],
+    ["Трохим Павлович Бойко", "Память народа: на першій сторінці лише однофамільці з інших районів."],
+    ["Іван Петрович Демчук", "Лише слабкий кандидат: 1914 р. н., Вінницька обл., 293 гв. стрілецька дивізія, картотека поранених."],
+  ]],
+  ["Церковні книги й каталоги", [
+    ["Колісники в Ракові, 1890", "Троїцька церква Томашполя: серед батьків, наречених і померлих немає."],
+    ["Фертюк на FamilySearch", "Повнотекстовий пошук: 0 записів. Рукописні книги цього регіону ним не охоплені."],
+    ["Книги 1891–1920 рр.", "Троїцька ц. Томашполя, Рожнятівка після 1885, Кислицьке 1901–02: онлайн немає."],
+  ]],
+  ["Інше", [
+    ["Шлюб Антона Фертюка й Валентини Орлової", "Онлайн немає: радянські записи ЗАГС не оцифровані."],
+    ["Надгробок Антона в Томашполі", "BillionGraves, FindAGrave, FamilySearch: фото кладовища немає."],
+    ["Євграф Орлов після 1912 р.", "Бази духовенства, бази репресованих, «Тульские епархиальные ведомости» (без покажчика): нічого."],
+    ["Фертюки серед репресованих", "ua.openlist: лише Фертюк Федір Дем'янович, 1919, Київська обл. — не наш."],
+  ]],
+]);
+fillGroups("arch", [
+  ["Вінницький архів (ДАВіО)", [
+    ["Р-6129 оп. 19 спр. 1–10", "Книги РАЦС с. Рожнятівка, 1922–1928: народження, шлюби, смерті Демчуків і Сауляків."],
+    ["904 оп. 39 спр. 10", "Шлюби по Рожнятівці, 1921–1922 (в описі «Пожнятівка»)."],
+    ["904 оп. 39 спр. 7", "Метрична книга Хрестовоздвиженської ц. Кислицького (1898, 1906–08, 1910, 1912–13): Фертюки, народження Євсея 1913."],
+    ["186 оп. 1 спр. 37–54", "Призовні списки Томашпільської волості, 1885–1915: Харлампій Колесник і його сини."],
+    ["774 оп. 1", "Сімейний список Рожнятівської волості 1890 і призовні списки: Родіон Сауляк, Петро Демчук."],
+  ]],
+  ["Інші архіви", [
+    ["ДРАЦС Томашпіль / Тульчин", "Актові записи: народження Михайла 1941, шлюб Олексія й Ксенії, смерті прадідів."],
+    ["Державний архів Тульської області (ГАТО)", "Клірові відомості Преображенської ц. і Троїцького собору Єфремова, 1905–1916: походження й освіта Євграфа."],
+    ["ЗАГС Мордовії", "Можливий шлюб Антона Фертюка й Валентини Орлової (1930–1940-ві)."],
+  ]],
+]);
+</script>
+
+</body>
+</html>
